@@ -1,0 +1,26 @@
+Crop Yield Analysis in India: Interactive Tableau Dashboard
+Project Overview 
+This project involves creating an interactive Tableau dashboard to analyze crop yield data in India. The dataset used in this project encompasses various factors that influence crop production and yield, providing a comprehensive view of agricultural trends across different states and seasons.
+
+Dataset
+The dataset includes the following columns:
+
+Crop: Type of crop
+Crop Year: Year of crop production
+Season: Season during which the crop is grown
+State: State where the crop is grown
+Annual Rainfall: Amount of annual rainfall in the region
+Area: Area of land used for crop production
+Fertilizer: Amount of fertilizer used
+Pesticides: Amount of pesticides used
+Production: Total crop production
+Yield: Crop yield per unit area
+Key Features
+Interactive Visualizations: The dashboard provides interactive charts and graphs, enabling users to explore data by crop type, year, season, state, and other factors.
+Insightful Trends: Visualizations highlight trends in crop production and yield, helping identify patterns and insights.
+Data-Driven Decisions: The analysis aims to support data-driven decision-making in agriculture, promoting enhanced productivity and sustainability.
+Insights Gained
+Seasonal Variations: Understanding how different seasons affect crop yield and production.
+Regional Differences: Analyzing how crop yield varies across different states in India.
+Impact of Rainfall: Investigating the correlation between annual rainfall and crop yield.
+Fertilizer and Pesticide Usage: Assessing the influence of fertilizer and pesticide usage on crop production.
