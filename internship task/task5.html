@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto; /* Allow scrolling */
+        }
+        #menu {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed; /* Fix menu to the top */
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around; /* Center buttons */
+            z-index: 1000; /* Make sure the menu is on top */
+        }
+        #menu button {
+            background-color: #555; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #menu button:hover {
+            background-color: #777; /* Hover color */
+        }
+        #info {
+            padding: 20px; /* Space around the text */
+            background-color: #f4f4f4; /* Background color */
+            color: #333; /* Text color */
+            margin-top: 100px; /* Space below the menu */
+        }
+        #message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px; /* Space above the message */
+            color: #d8000c; /* Message color */
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <button onclick="location.href='task1.html'">Task 1</button>
+        <button onclick="location.href='task2.html'">Task 2</button>
+        <button onclick="location.href='task3.html'">Task 3</button>
+        <button onclick="location.href='task4.html'">Task 4</button>
+        <button onclick="location.href='task5.html'">Task 5</button>
+        <button onclick="location.href='task6.html'">Task 6</button>
+        <button onclick="location.href='task7.html'">Task 7</button>
+        <button onclick="location.href='dashboard.html'">Job Portal Dashboard</button>
+    </div>
+
+    <div id="info">
+        <h1>Chart Instructions</h1>
+        <p>
+            5. Draw a chart where country = 'India' and 'Germany', qualification = 'B.Tech' and work type = 'Full time' where experience should be more than 2 years and job should be Data Science and salary range should be more than $10k. The India details should be in orange color and Germany details should be in green color. The job portal should be Indeed and preference should be female. The job posting date should be below 08/01/2023 and job portal should be Indeed. This chart should swap color after 12 PM to 6 PM.
+        </p>
+    </div>
+
+    <div id="message">
+        <h2>Notice</h2>
+        <p>Currently, there is no available data for this task.</p>
+    </div>
+    
+</body>
+</html>

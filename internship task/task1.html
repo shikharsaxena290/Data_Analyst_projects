@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto; /* Allow scrolling */
+        }
+        #menu {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed; /* Fix menu to the top */
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around; /* Center buttons */
+            z-index: 1000; /* Make sure the menu is on top */
+        }
+        #menu button {
+            background-color: #555; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #menu button a{
+            color: white;
+            text-decoration: none;
+        }
+        #menu button:hover {
+            background-color: #777; /* Hover color */
+        }
+        .tableauPlaceholder {
+            position: relative;
+            width: 100vw; /* Full width */
+            height: 75vh; /* Set a height for the chart */
+            margin-top: 100px; /* Space below the menu */
+            padding-bottom: 20px; /* Add padding below the chart */
+        }
+        object {
+            width: 100%; /* Ensure object is full width */
+            height: 100%; /* Ensure object is full height */
+            display: none; /* Initially hidden */
+        }
+        #info {
+            padding: 20px; /* Space around the text */
+            background-color: #f4f4f4; /* Background color */
+            color: #333; /* Text color */
+            margin-top: 20px; /* Space above the info section */
+        }
+        #message {
+            padding: 20px;
+            background-color: #ffdddd;
+            color: #d8000c;
+            text-align: center;
+            display: none; /* Initially hidden */
+            z-index: 999; /* Ensure it's above other content */
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <button onclick="checkDashboardVisibility()">Task 1</button>
+        <button onclick="location.href='task2.html'">Task 2</button>
+        <button onclick="location.href='task3.html'">Task 3</button>
+        <button onclick="location.href='task4.html'">Task 4</button>
+        <button onclick="location.href='task5.html'">Task 5</button>
+        <button onclick="location.href='task6.html'">Task 6</button>
+        <button onclick="location.href='task7.html'">Task 7</button>
+        <button onclick="location.href='dashboard.html'">Job Portal Dashboard</button>
+    </div>
+
+    <div class='tableauPlaceholder' id='viz1727520063157'>
+        <noscript><a href='#'><img alt='TASK 1 ' src='https://public.tableau.com/static/images/internshiptasks1/Sheet1/1_rss.png' style='border: none' /></a></noscript>
+        <object class='tableauViz'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+            <param name='embed_code_version' value='3' /> 
+            <param name='site_root' value='' />
+            <param name='name' value='internshiptasks1/Sheet1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/internshiptasks1/Sheet1/1.png' /> 
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+        </object>
+    </div>   
+
+    <div id="info">
+        <h1>Chart Instructions</h1>
+        <p>
+           1. Draw a chart between Preference and work type where work type is 'Intern' and latitude should be below 10. 
+            The county name should not start with A, B, C, or D. This chart will not work from 1 PM to 2 PM 
+            and 6 PM to 7 PM, but will be functional at all other times. Additionally, the job title should not 
+            contain more than 10 words, and the company size should be below 50,000.
+        </p>
+    </div>
+
+    <div id="message">
+        Chart is not visible between 1 PM to 2 PM and 6 PM to 7 PM.
+    </div>
+
+    <script type='text/javascript'>
+        function checkDashboardVisibility() {
+            const currentDate = new Date();
+            const currentHour = currentDate.getHours(); // Get current hour (0-23)
+            const currentMinute = currentDate.getMinutes(); // Get current minutes (0-59)
+
+            // Check if we are in the hide time range
+            const isHideTime = 
+                (currentHour === 13 && currentMinute >= 0) && (currentMinute < 60) || // 1 PM to 2 PM
+                (currentHour === 18 && currentMinute >= 0) && (currentMinute < 60) ;// 6 PM to 7 PM
+
+            var divElement = document.getElementById('viz1727520063157');
+            var messageElement = document.getElementById('message');
+
+            // Check if we are in the time range to show the dashboard
+            if (!isHideTime) {
+                divElement.style.display = 'block'; // Show dashboard
+                messageElement.style.display = 'none'; // Hide message
+            } else {
+                divElement.style.display = 'none'; // Hide dashboard
+                messageElement.style.display = 'block'; // Show message
+            }
+
+            // Load the Tableau API script only when the dashboard is visible
+            if (!isHideTime) {
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.display = 'block'; // Show the object
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            }
+        }
+
+        // Check visibility on page load
+        checkDashboardVisibility();
+
+        // Optional: Recheck visibility every minute
+        setInterval(checkDashboardVisibility, 60000); // Check every minute
+    </script>
+    
+</body>
+</html>
+
+
